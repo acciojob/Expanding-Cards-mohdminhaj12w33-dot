@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expanding Cards</title>
+    <title>Expanding Panels</title>
 
     <style>
         * {
@@ -18,6 +19,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
         }
 
         .container {
@@ -33,8 +35,10 @@
             position: relative;
             background-position: center;
             background-size: cover;
+            background-repeat: no-repeat;
             flex: 0.5;
             cursor: pointer;
+            transition: flex 0.7s ease-in;
         }
 
         .panel.active {
@@ -47,6 +51,7 @@
             bottom: 30px;
             left: 30px;
             opacity: 0;
+            transition: opacity 0.3s ease-in 0.4s;
         }
 
         .panel.active .img-text {
@@ -63,48 +68,66 @@
 
     <div class="container">
 
-        <!-- Initially expanded -->
-        <div class="panel active"
+        <!-- First panel is initially expanded -->
+        <div id="panel-1" class="panel active"
             style="background-image: url('https://images.unsplash.com/photo-1558979158-65a1eaa08691?auto=format&fit=crop&w=1350&q=80');">
-            <h3 class="img-text">Explore the world</h3>
+
+            <h3 class="img-text">Explore the World</h3>
         </div>
 
-        <div class="panel"
+
+        <div id="panel-2" class="panel"
             style="background-image: url('https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?auto=format&fit=crop&w=1350&q=80');">
+
             <h3 class="img-text">Wild Forest</h3>
         </div>
 
-        <div class="panel"
+
+        <div id="panel-3" class="panel"
             style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1353&q=80');">
+
             <h3 class="img-text">City on Winter</h3>
         </div>
 
-        <div class="panel"
+
+        <div id="panel-4" class="panel"
             style="background-image: url('https://images.unsplash.com/photo-1551009175-8a68da93d5f9?auto=format&fit=crop&w=1351&q=80');">
+
             <h3 class="img-text">Mountain Cloud</h3>
         </div>
 
-        <div class="panel"
+
+        <div id="panel-5" class="panel"
             style="background-image: url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=1350&q=80');">
+
             <h3 class="img-text">Sunny Beach</h3>
         </div>
 
     </div>
 
+
     <script>
+        // Select all panels
         const cards = document.querySelectorAll(".panel");
 
+        // Add a click event to every panel
         cards.forEach((card) => {
+
             card.addEventListener("click", () => {
 
+                // Remove active class from all panels
                 cards.forEach((c) => {
                     c.classList.remove("active");
                 });
 
+                // Add active class to the clicked panel
                 card.classList.add("active");
+
             });
+
         });
     </script>
 
 </body>
+
 </html>
