@@ -2,97 +2,109 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
-<style>
-    *{
-        margin:0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expanding Cards</title>
 
-    body{
-        height: 100vh;
-        width: 100vw;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .container{
-        width: 90%;
-        display: flex;
-        gap: 20px;
-        height: 90%;
-        justify-content: center;
-    }
-    .panel{
-        border-radius: 50px;
-        position: relative;
-        background-position: center;
-        background-size: cover;
-        flex: 0.5;
-        cursor: pointer;
-    
-    }
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .panel.active{
-        flex: 5;
+        .container {
+            width: 90%;
+            height: 90%;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
 
-    }
+        .panel {
+            border-radius: 50px;
+            position: relative;
+            background-position: center;
+            background-size: cover;
+            flex: 0.5;
+            cursor: pointer;
+        }
 
-    .panel .img-text{
-        position: absolute;
-        color: white;
-        bottom: 30px;
-        left: 30px;
-        opacity: 0;
-    }
-    .active .img-text{
-       opacity: 1;
-    }
-.shadow{
-box-shadow: 10px 10px 10px gray;
-}
+        .panel.active {
+            flex: 5;
+        }
 
+        .panel .img-text {
+            position: absolute;
+            color: white;
+            bottom: 30px;
+            left: 30px;
+            opacity: 0;
+        }
+
+        .panel.active .img-text {
+            opacity: 1;
+        }
+
+        .shadow {
+            box-shadow: 10px 10px 10px gray;
+        }
     </style>
-
 </head>
+
 <body>
+
     <div class="container">
-        <div class="panel" style="background-image: url(https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80
-);"id="panel">
-            <h3 class = "img-text"> Explore the world</h3>
+
+        <!-- Initially expanded -->
+        <div class="panel active"
+            style="background-image: url('https://images.unsplash.com/photo-1558979158-65a1eaa08691?auto=format&fit=crop&w=1350&q=80');">
+            <h3 class="img-text">Explore the world</h3>
         </div>
-        <div class="panel" style="background-image: url(https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80  
-);"id="panel">
-            <h3 class = "img-text"> Wild Forest</h3>
+
+        <div class="panel"
+            style="background-image: url('https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?auto=format&fit=crop&w=1350&q=80');">
+            <h3 class="img-text">Wild Forest</h3>
         </div>
-        <div class="panel" style="background-image: url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80  
-);"id="panel">
-            <h3 class = "img-text"> City on Winter</h3>
+
+        <div class="panel"
+            style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1353&q=80');">
+            <h3 class="img-text">City on Winter</h3>
         </div>
-        <div class="panel" style="background-image: url(https://images.unsplash.com/photo-1551009175-8a68da93d5f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80
-);"id="panel">
-            <h3 class = "img-text">  Mountain Cloud</h3>
+
+        <div class="panel"
+            style="background-image: url('https://images.unsplash.com/photo-1551009175-8a68da93d5f9?auto=format&fit=crop&w=1351&q=80');">
+            <h3 class="img-text">Mountain Cloud</h3>
         </div>
-        <div class="panel" style="background-image: url(https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80
-);"id="panel">
-            <h3 class = "img-text"> Sunny Beach</h3>
+
+        <div class="panel"
+            style="background-image: url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=1350&q=80');">
+            <h3 class="img-text">Sunny Beach</h3>
         </div>
+
     </div>
 
-
     <script>
-        const cards = document.querySelectorAll(".panel")
-        cards.forEach((card)=>{
-            card.addEventListener("click",(e)=>{
-                cards.forEach((c)=>{
-                    c.classList.remove("active")
-                })
-                e.target.classList.add("active")
-            })
-        })
+        const cards = document.querySelectorAll(".panel");
+
+        cards.forEach((card) => {
+            card.addEventListener("click", () => {
+
+                cards.forEach((c) => {
+                    c.classList.remove("active");
+                });
+
+                card.classList.add("active");
+            });
+        });
     </script>
+
 </body>
 </html>
